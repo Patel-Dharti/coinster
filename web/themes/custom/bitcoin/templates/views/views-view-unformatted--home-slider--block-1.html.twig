@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+<div class="home-slider">
+  <div class="owl-carousel" id="home-slider">
+      {% for row in rows %}
+
+      <div class="item">
+        {% set banner_img = file_url(row['content']['#row']._entity.field_slider_image.entity.fileuri) %}
+        <div class="home-slider-img" style="background:url({{ banner_img }}) no-repeat center top; background-size: 100%;">
+
+          <div class="container home-slider-content">
+              <div class="home-slider-body">
+                {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ body }}']}}
+              </div>
+              <div class="home-slider-action">
+                <a href="{{row.content['#row']._entity.field_slider_button.uri}}" title="{{row.content['#row']._entity.field_slider_button.title}}" class="btn btn-secondary">
+                    {{row.content['#row']._entity.field_slider_button.title}}
+                </a>
+              </div>
+          </div>
+          
+        </div>
+
+      </div>
+
+      {% endfor %}
+  </div>
+</div>

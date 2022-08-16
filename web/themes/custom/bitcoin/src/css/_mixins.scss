@@ -1,0 +1,134 @@
+/* --------------------------------------------------
+  Mixins
+
+  * Transitions
+  * Transform
+  * MediaQueries
+
+-------------------------------------------------- */
+
+/* Transitions */
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/* USAGE =====
+.class-name {
+  color: gray;
+  @include transition(color .3s ease);
+  &:hover {
+    color: black;
+  }
+}
+*/
+
+/* Transform */
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+/* USAGE =====
+same as * Transitions
+*/
+
+
+
+/* Keyframes and animation */
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+
+/* USAGE =====
+@include keyframes(slide-down) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+
+/*----- media queries -----*/
+
+/* All mobile view (portrait & landscape phones, less than 767px) */
+@mixin for-phone-portrait-landscape-up {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@mixin for-phone-portrait-up {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@mixin for-phone-landscape-up {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@mixin for-tablet-portrait-up {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@mixin for-tablet-landscape-up {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+/* USAGE =====
+.class-name {
+  color: gray;
+  @include for-phone-portrait-landscape-up(){
+    padding: 10px;
+  }
+}
+*/

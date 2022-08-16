@@ -1,0 +1,105 @@
+/* Form Elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 5px 26px;
+  font-size: 14px;
+  height: 40px;
+  font-weight: 700;
+  color: $text-primary-color;
+  background-color: $white;
+  border: none;
+  appearance: none;
+  border-radius: 25px;
+  position: relative;
+  font-family: $font-opensans;
+  text-transform: uppercase;
+
+  &:focus {
+    border-color: rgba($black, .2);
+    box-shadow: none;
+  }
+}
+
+.form-select {
+  background-image: url("../../src/images/download.svg");
+  font-weight: 700;
+  padding: 5px 26px;
+  text-transform: uppercase;
+}
+
+.form-textarea {
+  height: 115px;
+}
+
+/* Bitcoin Webform */
+.bitcoin-webform {
+  margin: 30px 0 0;
+
+  .form-actions {
+    margin: 40px 0 0;
+
+    @include for-phone-portrait-landscape-up() {
+      margin: 20px 0 0;
+    }
+
+  }
+}
+
+/* Contact Webform */
+.contact-webform {
+  margin-top: 40px;
+
+  .webform-flexbox {
+    margin: 16px 0 26px;
+  }
+
+  .form-item {
+    position: relative;
+
+    .field-prefix {
+      position: absolute;
+      left: 20px;
+      z-index: 1;
+      line-height: 40px;
+    }
+  }
+
+  .form-control {
+    text-align: center;
+    width: 100% !important;
+    letter-spacing: 1.5px;
+    padding: 5px 26px 5px 40px;
+  }
+
+  .form-actions {
+    margin: 40px 0 0;
+
+    @include for-phone-portrait-landscape-up() {
+      margin: 20px 0 0;
+    }
+  }
+}
+
+/* Newsletter */
+.webform-submission-newsletter-form {
+  .form-item {
+    position: relative;
+
+    .form-control {
+      letter-spacing: 1.5px;
+    }
+
+    .field-suffix {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      z-index: 1;
+      line-height: 40px;
+    }
+  }
+
+  .form-actions {
+    display: none;
+  }
+}

@@ -1,0 +1,559 @@
+/**
+* Global component
+*
+* - Home Slider
+* - About US
+* - Process Card
+* - Testimonial
+* - Services
+* - Blog
+*
+**/
+
+.home-slider {
+  .home-slider-img {
+    height: 600px;
+    position: relative;
+
+    @include for-tablet-portrait-up() {
+      height: auto;
+      padding: 80px 0;
+      background-size: cover !important;
+    }
+
+    @include for-phone-portrait-landscape-up() {
+      height: auto;
+      padding: 50px 0;
+      background-size: cover !important;
+      text-align: center;
+    }
+
+    .home-slider-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .home-slider-body {
+        margin-bottom: 40px;
+        letter-spacing: 1.8px;
+
+        @include for-phone-portrait-landscape-up() {
+          margin-bottom: 20px;
+        }
+      }
+
+      .home-slider-action {
+        .btn {
+          width: auto;
+          min-width: 200px;
+
+          @include for-phone-portrait-landscape-up() {
+            min-width: auto;
+          }
+
+        }
+      }
+    }
+  }
+
+}
+
+.owl-carousel {
+  .owl-dots {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    button {
+      &.owl-dot {
+        display: block;
+        height: 8px;
+        width: 8px;
+        border-radius: 100%;
+        background-color: $white ;
+        margin-bottom: 20px;
+
+        &.active,
+        &:focus,
+        &:active {
+          border: none;
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+/* Process Cards Section */
+.process-card {
+  position: relative;
+
+  @include for-phone-portrait-landscape-up() {
+    margin-bottom: 30px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 80px;
+    width: calc(100% - 50%);
+    height: 1px;
+    background-color: $primary-color;
+    right: -28%;
+
+    @include for-tablet-portrait-up() {
+      top: 60px;
+      width: 45%;
+    }
+
+    @include for-phone-portrait-landscape-up() {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    border-left: 8px solid $primary-color;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    top: 72px;
+    margin: auto;
+    right: -28%;
+
+    @include for-tablet-portrait-up() {
+      top: 52px;
+    }
+
+    @include for-phone-portrait-landscape-up() {
+      display: none;
+    }
+  }
+
+  .process-card-icon {
+    margin: auto auto 30px;
+    height: 160px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include for-tablet-portrait-up() {
+      height: 120px;
+    }
+
+    @include for-phone-portrait-landscape-up() {
+      height: 100px;
+      margin: auto auto 20px;
+    }
+
+    &::after {
+      content: "";
+      border: 2px dashed rgba($black, .1);
+      height: 160px;
+      width: 160px;
+      border-radius: 100%;
+      position: absolute;
+
+      @include for-tablet-portrait-up() {
+        height: 120px;
+        width: 120px;
+      }
+
+      @include for-phone-portrait-landscape-up() {
+        height: 100px;
+        width: 100px;
+      }
+    }
+
+    &:hover {
+      &:after {
+        @include animation(rotate 4s linear infinite);
+      }
+
+    }
+
+    @include keyframes(rotate) {
+      from {
+        @include transform(rotate(0deg));
+      }
+
+      to {
+        @include transform(rotate(180deg));
+      }
+    }
+
+    i {
+      font-size: 26px;
+    }
+  }
+
+  h4 {
+    a {
+      color: $text-primary-color;
+    }
+  }
+
+  .process-card-desc {
+    color: rgba($black, .4);
+  }
+}
+
+/* Testimonial Section */
+.testimonial-wrap {
+
+  .testimonial-img {
+    position: relative;
+
+    .img-circle {
+      height: 200px;
+      width: 200px;
+      border-radius: 100%;
+      overflow: hidden;
+      margin: auto auto 30px;
+
+      @include for-phone-portrait-landscape-up() {
+        height: 150px;
+        width: 150px;
+      }
+    }
+
+    .quote {
+      background-color: $secondary-color;
+      height: 60px;
+      width: 60px;
+      line-height: 66px;
+      border-radius: 100%;
+      display: inline-block;
+      margin-left: 50px;
+      position: absolute;
+      bottom: 0;
+
+      @include for-phone-portrait-landscape-up() {
+        height: 50px;
+        width: 50px;
+        line-height: 55px;
+      }
+
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .testimonial-details {
+    color: rgba($black, .6);
+    font-size: 20px;
+    line-height: 32px;
+
+    @include for-phone-portrait-landscape-up() {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    h6 {
+      margin-bottom: 16px;
+
+      a {
+        color: $primary-color;
+      }
+    }
+
+    .designation {
+      font-size: 40px;
+      color: $text-primary-color;
+      text-transform: capitalize;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+
+      @include for-phone-portrait-landscape-up() {
+        font-size: 36px;
+      }
+    }
+  }
+}
+
+/* Services Block */
+.service-main-block {
+  display: grid;
+  grid-template-columns: repeat(2, 350px);
+  justify-content: space-between;
+  height: 100vh;
+
+  @include for-phone-portrait-landscape-up() {
+    display: block;
+    grid-template-columns: inherit;
+    justify-content: inherit;
+    height: auto;
+  }
+
+  @include for-tablet-portrait-up() {
+    height: auto;
+  }
+
+  .service-card {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba($black, .4);
+
+    &:first-child {
+      margin-left: 120px;
+
+      @include for-phone-portrait-landscape-up() {
+        margin-left: 0;
+      }
+
+      @include for-tablet-portrait-up() {
+        margin-left: 0;
+      }
+
+
+      .text-formatted {
+        padding: 0;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-left: -120px;
+
+      @include for-tablet-portrait-up() {
+        margin-left: 10px;
+      }
+
+      @include for-phone-portrait-landscape-up() {
+        margin-left: 0;
+      }
+
+      .text-formatted {
+        padding: 0 80px;
+      }
+    }
+
+    .text-formatted {
+      padding: 0 50px;
+    }
+  }
+
+}
+
+
+.service-column {
+
+  .service-card {
+    width: 300px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba($black, .4);
+    margin-bottom: 50px;
+    padding: 0 20px;
+
+    @include for-phone-portrait-landscape-up() {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    i {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &:first-child {
+    .service-card {
+      &:first-child {
+        margin-left: 50px;
+
+        @include for-tablet-portrait-up() {
+          margin-left: 10px;
+        }
+
+        @include for-phone-portrait-landscape-up() {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(2) {
+        @include for-tablet-portrait-up() {
+          margin-left: -50px;
+        }
+      }
+
+      &:last-child {
+        margin-left: 30px;
+
+        @include for-tablet-portrait-up() {
+          margin-bottom: 0;
+        }
+
+        @include for-phone-portrait-landscape-up() {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    .service-card {
+      &:first-child {
+        margin-left: -50px;
+
+        @include for-tablet-portrait-up() {
+          margin-left: 50px;
+        }
+
+        @include for-phone-portrait-landscape-up() {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(2) {
+        @include for-tablet-portrait-up() {
+          margin-left: 100px;
+        }
+      }
+
+      &:last-child {
+        margin-left: -20px;
+
+        @include for-tablet-portrait-up() {
+          margin-bottom: 0;
+          margin-left: 50px;
+        }
+
+        @include for-phone-portrait-landscape-up() {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Blog Card */
+.blog-card {
+  border: 1px solid rgba($black, .1);
+  color: rgba($black, .4);
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+
+  &:hover {
+    .icon-edit {
+      i {
+        @include transform(rotate(360deg));
+      }
+    }
+  }
+
+  .icon-edit {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom: 20px;
+
+    i {
+      @include transition(all 2s ease);
+    }
+  }
+
+  .blog-footer {
+    padding: 0 30px 14px;
+    margin-top: -30px;
+
+    h4 {
+      margin-bottom: 20px;
+
+      a {
+        color: $text-primary-color;
+      }
+    }
+
+  }
+
+  .blog-details {
+    display: flex;
+    border-top: 1px solid rgba($black, .1);
+
+    li {
+      flex: 1;
+      padding: 24px 20px;
+      position: relative;
+      border-right: 1px solid rgba($black, .1);
+      font-weight: 700;
+      font-size: 14px;
+      color: $text-primary-color;
+      text-transform: uppercase;
+
+      a {
+        color: $text-primary-color;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &:hover {
+        a {
+          color: $primary-color  !important;
+        }
+      }
+
+
+      &:first-child {
+        &::after {
+          content: "ON";
+          font-weight: 900;
+          font-size: 40px;
+          opacity: .3;
+          color: rgba($black, .1);
+          position: absolute;
+          left: 0;
+          right: 0;
+          @include transition(all 2s ease);
+        }
+      }
+
+      &:nth-child(2),
+      &:last-child {
+        a {
+          position: relative;
+
+          &::after {
+            content: "DY";
+            font-weight: 900;
+            font-size: 40px;
+            opacity: .3;
+            color: rgba($black, .1);
+            position: absolute;
+            left: 0;
+            right: 0;
+            @include transition(all .3s ease);
+          }
+        }
+      }
+
+      &:last-child {
+        a {
+          position: relative;
+
+          &::after {
+            content: "IN";
+          }
+        }
+      }
+    }
+  }
+}

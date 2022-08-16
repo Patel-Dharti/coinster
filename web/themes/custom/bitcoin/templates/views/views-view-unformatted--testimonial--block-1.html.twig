@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<div class="testimonial-slider p-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="owl-carousel" id="testimonial-slider">
+            {% for row in rows %}
+
+            <div class="item">
+              <div class="testimonial-wrap text-center">
+              <div class="testimonial-img">
+                <div class="img-circle">
+                  <img  src="{{ file_url(row['content']['#row']._entity.field_people_image.entity.fileuri) }}" /> 
+                </div>
+                <span class="quote"><i class="fa fa-quote-left text-white"></i></span>
+              </div>
+              <div class="testimonial-details">
+                <h6 class="text-primary text-uppercase">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ title }}']}}</h6>
+                <span class="designation">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_designation }}']}}</span>
+                {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ body }}']}}
+              </div>
+
+              </div>
+            </div>
+            {% endfor %}
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

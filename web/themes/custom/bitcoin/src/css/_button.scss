@@ -1,0 +1,46 @@
+/*  Button  */
+.btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-opensans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  padding: 16px 40px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include transition(all .2s ease);
+  vertical-align: middle;
+
+  @include for-phone-portrait-landscape-up() {
+    padding: 12px 30px;
+  }
+
+  &:focus {
+    border: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+
+  &:hover {
+    background: $secondary-color;
+    border-color: $secondary-color;
+  }
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+
+  &:hover {
+    background: $primary-color;
+    border-color: $primary-color;
+  }
+}

@@ -1,0 +1,21 @@
+name: "Bitcoin"
+type: theme
+description: "Bitcoin based on Bootstrap 5 theme."
+core_version_requirement: "^8.9 || ^9"
+"base theme": bootstrap5
+libraries:
+  - bitcoin/global-styling
+  - bitcoin/fontawesome
+  - bitcoin/owlcarousel
+
+stylesheets-remove:
+  - "@bootstrap5/css/style.css"
+
+regions:
+  header: Header
+  nav_main: "Main navigation region"
+  content: "Main content"
+  footer_blogs: Footer Blogs
+  footer_details: Footer Details
+  footer_form: Footer Form
+  copyright: Copyright

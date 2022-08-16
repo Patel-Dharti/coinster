@@ -1,0 +1,262 @@
+/**
+* Global component
+*
+* - About US
+* - Process
+* - Testimonial
+* - Bitcoin From
+* - Contact US
+* - Services
+* - Blog
+* - Brand Slider
+*
+**/
+
+/* About us Section */
+.section-aboutus {
+  background-image: url("../../src/images/about.jpeg");
+  background-repeat: no-repeat;
+  background-position: -300px;
+  width: 100%;
+  height: 696px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include for-tablet-portrait-up() {
+    background-size: cover;
+    background-position: -440px;
+    height: auto;
+    padding: 80px 0;
+  }
+
+  @include for-phone-portrait-landscape-up() {
+    background-size: cover;
+    background-position: right;
+    height: auto;
+    padding: 40px 0;
+  }
+
+
+  .about-wrapper {
+    .about-content {
+      margin: 30px 0px;
+      color: rgba($black, .4);
+      line-height: 30px;
+    }
+  }
+}
+
+
+/* Process Section */
+.section-process {
+  .col-lg-4 {
+    &:last-child {
+      .process-card {
+        @include for-phone-portrait-landscape-up() {
+          margin-bottom: 0px;
+        }
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+/* Testimonial Section */
+.testimonial-slider {
+
+  .owl-carousel {
+    .owl-dots {
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 20px auto auto;
+      position: relative;
+      flex-direction: row;
+
+      button {
+        &.owl-dot {
+          display: inline-block;
+          height: 8px;
+          width: 8px;
+          border-radius: 100%;
+          background-color: $text-primary-color ;
+          margin: 0 10px;
+
+          &.active,
+          &:focus,
+          &:active {
+            border: none;
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Bitcoin Form Section */
+.section-bitcoin,
+.section-contact {
+  background-image: url("../../src/images/calculator.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 676px;
+  display: flex;
+  align-items: center;
+
+  @include for-phone-portrait-landscape-up() {
+    height: auto;
+    background-size: cover;
+    padding: 40px 0;
+  }
+
+  @include for-tablet-portrait-up() {
+    height: auto;
+    padding: 80px 0;
+    background-size: cover;
+  }
+
+  .bitcoin-wrapper {
+    p {
+      color: $white;
+      margin: 30px 0;
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+}
+
+/* Contact US Section */
+.section-contact {
+  background-image: url("../../src/images/contact.jpeg");
+  background-position: top;
+  background-size: 120%;
+
+  @include for-phone-portrait-landscape-up() {
+    background-size: cover;
+    background-position: center center;
+    height: auto;
+  }
+
+  @include for-tablet-portrait-up() {
+    height: auto;
+    padding: 80px 0;
+    background-size: cover;
+  }
+}
+
+/* Services Section */
+.section-services {
+  background-image: url("../../src/images/advantages.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 895px;
+
+  @include for-tablet-portrait-up() {
+    height: auto;
+    background-size: 100%;
+    background-color: $alice-blue;
+  }
+
+  @include for-phone-portrait-landscape-up() {
+    background-image: none;
+    height: auto;
+    padding: 0;
+  }
+
+  .service-block {
+    @include for-tablet-portrait-up() {
+      padding: 0;
+    }
+
+    @include for-phone-portrait-landscape-up() {
+      padding-bottom: 0;
+    }
+  }
+
+}
+
+/* Blog Section */
+.blog-wrapper {
+  margin-top: 80px;
+
+  .owl-nav {
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .owl-next,
+    .owl-prev {
+      margin: 0 20px;
+
+      span {
+        font-size: 0;
+        line-height: 0;
+
+        &::after {
+          content: "Next";
+          font-size: 14px;
+          font-weight: 800;
+          text-transform: uppercase;
+          color: rgba($black, .6);
+        }
+      }
+
+      &.disabled {
+        span {
+          &::after {
+            color: rgba($black, .2);
+          }
+        }
+      }
+    }
+
+    .owl-prev {
+      position: relative;
+
+      &::after {
+        content: "";
+        height: 14px;
+        width: 2px;
+        background-color: rgba($black, .6);
+        position: absolute;
+        right: -20px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      span {
+        &::after {
+          content: "Prev";
+        }
+      }
+    }
+  }
+}
+
+/* Brand Slider Section */
+.brand-slider {
+  .owl-carousel {
+    .owl-item {
+      img {
+        width: auto;
+        max-width: 80%;
+        margin: auto;
+        opacity: .3;
+        filter: grayscale(1);
+      }
+    }
+  }
+}
