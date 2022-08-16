@@ -301,6 +301,22 @@ h6 {
   display: none;
 }
 
+/* User login form */
+.user-login-form {
+  max-width: 600px;
+  margin: auto;
+}
+@media (max-width: 767px) {
+  .user-login-form {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
+.user-login-form .form-control {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-transform: inherit;
+}
+
 /*  Button  */
 .btn {
   background-color: transparent;
