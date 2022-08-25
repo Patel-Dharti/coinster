@@ -4,3 +4,17 @@
  * @file
  * Bitcoin theme file.
  */
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function bitcoin_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $node_type = $variables['elements']['#node']->getType();
+
+  if($node_type == 'image_position'){
+    $position = $node->get('field_position_image')->getString();
+    $variables['img_position'] = $position;
+  }
+
+}

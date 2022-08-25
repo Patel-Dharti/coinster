@@ -776,13 +776,20 @@ footer .section-footer-blog .footer-blog-wrapper .footer-blog-details li.month:l
 }
 @media (max-width: 767px) {
   .back-to-top {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    right: 20px;
+    bottom: 20px;
   }
 }
 .back-to-top i {
   font-size: 20px;
   line-height: 60px;
+}
+@media (max-width: 767px) {
+  .back-to-top i {
+    line-height: 40px;
+  }
 }
 
 /**

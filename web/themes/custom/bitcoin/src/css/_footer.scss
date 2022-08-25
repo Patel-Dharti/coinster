@@ -159,12 +159,19 @@ footer {
   cursor: pointer;
 
   @include for-phone-portrait-landscape-up() {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    right: 20px;
+    bottom: 20px;
   }
 
   i {
     font-size: 20px;
     line-height: 60px;
+
+    @include for-phone-portrait-landscape-up() {
+      line-height: 40px;
+    }
+
   }
 }
