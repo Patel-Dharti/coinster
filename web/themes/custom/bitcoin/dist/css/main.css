@@ -1392,7 +1392,8 @@ footer .section-footer-blog .footer-blog-wrapper .footer-blog-details li.month:l
 .section-aboutus {
   background-image: url("../../src/images/about.jpeg");
   background-repeat: no-repeat;
-  background-position: -300px;
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 696px;
   display: flex;
@@ -1460,6 +1461,7 @@ footer .section-footer-blog .footer-blog-wrapper .footer-blog-details li.month:l
   background-image: url("../../src/images/calculator.jpeg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   width: 100%;
   height: 676px;
   display: flex;
